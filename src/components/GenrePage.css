@@ -1,0 +1,70 @@
+.genre-page {
+  padding: 30px 0;
+}
+
+.genre-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.genre-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.genre-description {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.drama-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.no-dramas {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.no-dramas p {
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.back-to-home {
+  display: inline-block;
+  background-color: #ff5e62;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.back-to-home:hover {
+  background-color: #e54b4e;
+}
+
+@media (max-width: 768px) {
+  .genre-title {
+    font-size: 1.8rem;
+  }
+  
+  .genre-description {
+    font-size: 1rem;
+  }
+  
+  .drama-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
