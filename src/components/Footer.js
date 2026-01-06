@@ -11,7 +11,7 @@ const Footer = () => {
             Discover your next favorite Korean drama with our curated recommendations.
           </p>
         </div>
-        
+
         <div className="footer-section">
           <h3 className="footer-title">Quick Links</h3>
           <ul className="footer-links">
@@ -21,7 +21,7 @@ const Footer = () => {
             <li><a href="/genre/Comedy">Comedy</a></li>
           </ul>
         </div>
-        
+
         <div className="footer-section">
           <h3 className="footer-title">About</h3>
           <p className="footer-description">
@@ -30,7 +30,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      
+
       <div className="footer-bottom">
         <div className="container">
           <p className="copyright">

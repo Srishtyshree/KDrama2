@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { getDramaDetails } from '../services/api';
+import React, {useState, useEffect} from 'react';
+import {useParams, Link} from 'react-router-dom';
+import {getDramaDetails} from '../services/api';
 import './DramaDetails.css';
 
 const DramaDetails = () => {
-  const { id } = useParams();
+  const {id} = useParams();
   const [drama, setDrama] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -45,8 +45,8 @@ const DramaDetails = () => {
   }
 
   // Remove HTML tags from summary
-  const cleanSummary = drama.summary 
-    ? drama.summary.replace(/<[^>]*>/g, '') 
+  const cleanSummary = drama.summary
+    ? drama.summary.replace(/<[^>]*>/g, '')
     : 'No summary available.';
 
   return (
@@ -55,37 +55,37 @@ const DramaDetails = () => {
         <div className="drama-details-header">
           <div className="drama-poster">
             {drama.image ? (
-              <img 
-                src={drama.image.original || drama.image.medium} 
-                alt={drama.name} 
+              <img
+                src={drama.image.original || drama.image.medium}
+                alt={drama.name}
               />
             ) : (
               <div className="no-poster">No Image Available</div>
             )}
           </div>
-          
+
           <div className="drama-info">
             <h1 className="drama-title">{drama.name}</h1>
-            
+
             {drama.premiered && (
               <div className="drama-year">
                 {new Date(drama.premiered).getFullYear()}
               </div>
             )}
-            
+
             {drama.rating && drama.rating.average && (
               <div className="drama-rating">
-                <span className="rating-star">★</span> 
+                <span className="rating-star">★</span>
                 {Number(drama.rating.average).toFixed(1)}/10
               </div>
             )}
-            
+
             {drama.genres && drama.genres.length > 0 && (
               <div className="drama-genres">
                 {drama.genres.map(genre => (
-                  <Link 
-                    key={genre} 
-                    to={`/genre/${genre}`} 
+                  <Link
+                    key={genre}
+                    to={`/genre/${genre}`}
                     className="genre-tag"
                   >
                     {genre}
@@ -93,30 +93,30 @@ const DramaDetails = () => {
                 ))}
               </div>
             )}
-            
+
             {drama.network && (
               <div className="drama-network">
                 <span className="info-label">Network:</span> {drama.network.name}
               </div>
             )}
-            
+
             {drama.status && (
               <div className="drama-status">
                 <span className="info-label">Status:</span> {drama.status}
               </div>
             )}
-            
+
             <div className="drama-summary">
               <h3>Summary</h3>
               <p>{cleanSummary}</p>
             </div>
-            
+
             {drama.officialSite && (
               <div className="drama-links">
-                <a 
-                  href={drama.officialSite} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={drama.officialSite}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="official-site-link"
                 >
                   Official Website
@@ -125,7 +125,7 @@ const DramaDetails = () => {
             )}
           </div>
         </div>
-        
+
         {drama.cast && drama.cast.length > 0 && (
           <div className="drama-cast">
             <h2 className="section-title">Cast</h2>
@@ -134,9 +134,9 @@ const DramaDetails = () => {
                 <div key={castMember.person.id} className="cast-item">
                   <div className="cast-image">
                     {castMember.person.image ? (
-                      <img 
-                        src={castMember.person.image.medium} 
-                        alt={castMember.person.name} 
+                      <img
+                        src={castMember.person.image.medium}
+                        alt={castMember.person.name}
                       />
                     ) : (
                       <div className="no-image">No Image</div>
@@ -153,7 +153,7 @@ const DramaDetails = () => {
             </div>
           </div>
         )}
-        
+
         <div className="back-navigation">
           <Link to="/" className="back-button">
             Back to Home

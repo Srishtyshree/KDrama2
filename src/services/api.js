@@ -14,6 +14,35 @@ export const getPopularKdramas = async () => {
   }
 };
 
+// Get curated iconic K-dramas
+export const getCuratedKdramas = async () => {
+  const titles = [
+    'Crash Landing on You',
+    'The Heirs',
+    'Legend of the Blue Sea',
+    'True Beauty',
+    'King the Land',
+    'The Penthouse',
+    'Descendants of the Sun',
+    'Vincenzo',
+    'Goblin',
+    'Signal'
+  ];
+
+  try {
+    const promises = titles.map(title =>
+      axios.get(`${API_BASE_URL}/singlesearch/shows?q=${encodeURIComponent(title)}`)
+    );
+    const responses = await Promise.allSettled(promises);
+    return responses
+      .filter(res => res.status === 'fulfilled' && res.value.data)
+      .map(res => res.value.data);
+  } catch (error) {
+    console.error('Error fetching curated K-dramas:', error);
+    return [];
+  }
+};
+
 // Search K-dramas by title
 export const searchKdramas = async (query) => {
   try {
@@ -49,8 +78,8 @@ export const getKdramasByGenre = async (genre) => {
     // Then filter by genre
     const dramas = response.data
       .map(item => item.show)
-      .filter(show => 
-        show.genres && 
+      .filter(show =>
+        show.genres &&
         show.genres.some(g => g.toLowerCase() === genre.toLowerCase())
       );
     return dramas;
@@ -60,12 +89,30 @@ export const getKdramasByGenre = async (genre) => {
   }
 };
 
+// Get K-dramas by year
+export const getKdramasByYear = async (year) => {
+  try {
+    // We'll search for "korean" and filter by year
+    const response = await axios.get(`${API_BASE_URL}/search/shows?q=korean`);
+    return response.data
+      .map(item => item.show)
+      .filter(show => {
+        if (!show.premiered) return false;
+        const showYear = new Date(show.premiered).getFullYear();
+        return showYear === parseInt(year);
+      });
+  } catch (error) {
+    console.error(`Error fetching K-dramas for year ${year}:`, error);
+    return [];
+  }
+};
+
 // Get a list of all genres from the available K-dramas
 export const getAllGenres = async () => {
   try {
     const response = await axios.get(`${API_BASE_URL}/search/shows?q=korean`);
     const shows = response.data.map(item => item.show);
-    
+
     // Extract all genres and remove duplicates
     const allGenres = shows.reduce((genres, show) => {
       if (show.genres && Array.isArray(show.genres)) {
@@ -77,7 +124,7 @@ export const getAllGenres = async () => {
       }
       return genres;
     }, []);
-    
+
     return allGenres;
   } catch (error) {
     console.error('Error fetching genres:', error);

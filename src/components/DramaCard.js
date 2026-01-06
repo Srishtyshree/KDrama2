@@ -21,8 +21,8 @@ const DramaCard = ({drama}) => {
 
   return (
     <motion.div
-      whileHover={{y: -10}}
-      transition={{duration: 0.3}}
+      whileHover={{scale: 1.05, y: -5}}
+      transition={{type: "spring", stiffness: 300}}
     >
       <Link to={`/drama/${drama.id}`} className="drama-card">
         <div className="drama-card-image-container">

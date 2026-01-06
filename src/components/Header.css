@@ -90,8 +90,8 @@
 }
 
 .search-form:focus-within {
-  border-color: #FFFFFF;
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+  border-color: #000B1C;
+  box-shadow: 0 0 0 4px rgba(0, 11, 28, 0.05);
 }
 
 .search-input {
@@ -108,8 +108,8 @@
 }
 
 .search-button {
-  background-color: #000B1C;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #000B1C;
   border: none;
   padding: 8px 20px;
   border-radius: 50px;
@@ -120,7 +120,7 @@
 }
 
 .search-button:hover {
-  background-color: #001533;
+  background-color: #F2EFE9;
   transform: scale(1.05);
 }
 

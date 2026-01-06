@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {useLocation, Link} from 'react-router-dom';
-import {motion} from 'framer-motion';
 import {searchKdramas} from '../services/api';
 import DramaCard from './DramaCard';
 import './SearchResults.css';
@@ -47,33 +46,10 @@ const SearchResults = () => {
     return <div className="error-message">{error}</div>;
   }
 
-  const containerVariants = {
-    hidden: {opacity: 0},
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: {y: 20, opacity: 0},
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
-
   return (
     <div className="search-results">
       <div className="container">
-        <motion.div
-          className="search-header"
-          initial={{opacity: 0, y: -20}}
-          animate={{opacity: 1, y: 0}}
-          transition={{duration: 0.5}}
-        >
+        <div className="search-header">
           <h1 className="search-title">
             {results.length > 0
               ? `Search Results for "${query}"`
@@ -82,21 +58,14 @@ const SearchResults = () => {
           <p className="results-count">
             {results.length} {results.length === 1 ? 'result' : 'results'} found
           </p>
-        </motion.div>
+        </div>
 
         {results.length > 0 ? (
-          <motion.div
-            className="drama-grid"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
+          <div className="drama-grid">
             {results.map(drama => (
-              <motion.div key={drama.id} variants={itemVariants}>
-                <DramaCard drama={drama} />
-              </motion.div>
+              <DramaCard key={drama.id} drama={drama} />
             ))}
-          </motion.div>
+          </div>
         ) : (
           <div className="no-results">
             <p>No K-dramas found matching your search.</p>
