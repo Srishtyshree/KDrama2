@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import { searchKdramas } from '../services/api';
+import React, {useState, useEffect} from 'react';
+import {useLocation, Link} from 'react-router-dom';
+import {motion} from 'framer-motion';
+import {searchKdramas} from '../services/api';
 import DramaCard from './DramaCard';
 import './SearchResults.css';
 
 const SearchResults = () => {
   const location = useLocation();
   const query = new URLSearchParams(location.search).get('q');
-  
+
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -46,26 +47,56 @@ const SearchResults = () => {
     return <div className="error-message">{error}</div>;
   }
 
+  const containerVariants = {
+    hidden: {opacity: 0},
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: {y: 20, opacity: 0},
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+
   return (
     <div className="search-results">
       <div className="container">
-        <div className="search-header">
+        <motion.div
+          className="search-header"
+          initial={{opacity: 0, y: -20}}
+          animate={{opacity: 1, y: 0}}
+          transition={{duration: 0.5}}
+        >
           <h1 className="search-title">
-            {results.length > 0 
-              ? `Search Results for "${query}"` 
+            {results.length > 0
+              ? `Search Results for "${query}"`
               : `No results found for "${query}"`}
           </h1>
           <p className="results-count">
             {results.length} {results.length === 1 ? 'result' : 'results'} found
           </p>
-        </div>
+        </motion.div>
 
         {results.length > 0 ? (
-          <div className="drama-grid">
+          <motion.div
+            className="drama-grid"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             {results.map(drama => (
-              <DramaCard key={drama.id} drama={drama} />
+              <motion.div key={drama.id} variants={itemVariants}>
+                <DramaCard drama={drama} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         ) : (
           <div className="no-results">
             <p>No K-dramas found matching your search.</p>

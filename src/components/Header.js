@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
@@ -17,39 +17,45 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container header-container">
-        <Link to="/" className="logo">
-          <h1>K-Drama Finder</h1>
-        </Link>
-        
-        <form className="search-form" onSubmit={handleSearch}>
-          <input
-            type="text"
-            placeholder="Search for K-dramas..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="search-input"
-          />
-          <button type="submit" className="search-button">
-            Search
-          </button>
-        </form>
-        
-        <nav className="main-nav">
-          <ul className="nav-list">
-            <li className="nav-item">
-              <Link to="/" className="nav-link">Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/genre/Romance" className="nav-link">Romance</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/genre/Drama" className="nav-link">Drama</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/genre/Comedy" className="nav-link">Comedy</Link>
-            </li>
-          </ul>
-        </nav>
+        <div className="header-left">
+          <Link to="/" className="logo">
+            <h1>K-Drama Finder</h1>
+          </Link>
+        </div>
+
+        <div className="header-center">
+          <nav className="main-nav">
+            <ul className="nav-list">
+              <li className="nav-item">
+                <Link to="/" className="nav-link">Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/genre/Romance" className="nav-link">Romance</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/genre/Drama" className="nav-link">Drama</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/genre/Comedy" className="nav-link">Comedy</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div className="header-right">
+          <form className="search-form" onSubmit={handleSearch}>
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="search-input"
+            />
+            <button type="submit" className="search-button">
+              Search
+            </button>
+          </form>
+        </div>
       </div>
     </header>
   );

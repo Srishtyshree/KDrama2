@@ -1,32 +1,41 @@
 .footer {
-  background-color: #333;
-  color: #fff;
-  padding-top: 40px;
+  background-color: #000B1C;
+  /* Exact Deep Navy */
+  color: #F2EFE9;
+  /* Exact Cream */
+  padding-top: 60px;
   margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 .footer-section {
   flex: 1;
   min-width: 250px;
-  margin-bottom: 30px;
-  padding-right: 20px;
+  margin-bottom: 40px;
+  padding-right: 40px;
 }
 
 .footer-title {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  color: #ff5e62;
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  color: #FFFFFF;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 .footer-description {
-  line-height: 1.6;
-  color: #ccc;
+  line-height: 1.8;
+  color: rgba(242, 239, 233, 0.7);
+  font-size: 0.95rem;
 }
 
 .footer-links {
@@ -35,43 +44,51 @@
 }
 
 .footer-links li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .footer-links a {
-  color: #ccc;
+  color: rgba(242, 239, 233, 0.7);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
 }
 
 .footer-links a:hover {
-  color: #ff5e62;
+  color: #FFFFFF;
+  padding-left: 5px;
 }
 
 .footer-bottom {
-  background-color: #222;
-  padding: 15px 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 25px 0;
   text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.copyright, .attribution {
-  font-size: 0.9rem;
-  color: #999;
+.copyright,
+.attribution {
+  font-size: 0.85rem;
+  color: rgba(242, 239, 233, 0.5);
   margin: 5px 0;
+  letter-spacing: 0.5px;
 }
 
 .attribution a {
-  color: #ff5e62;
+  color: #FFFFFF;
   text-decoration: none;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
+    padding: 0 20px;
   }
-  
+
   .footer-section {
     width: 100%;
     padding-right: 0;
+    margin-bottom: 30px;
   }
 }

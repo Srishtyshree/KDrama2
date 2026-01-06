@@ -1,34 +1,42 @@
 .drama-details {
-  padding: 30px 0;
+  padding: 60px 0;
+  background-color: #F2EFE9;
+  min-height: 100vh;
 }
 
 .drama-details-header {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
-  margin-bottom: 40px;
+  gap: 50px;
+  margin-bottom: 60px;
+  background: #FFFFFF;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E5E1D8;
 }
 
 .drama-poster {
-  flex: 0 0 300px;
+  flex: 0 0 350px;
 }
 
 .drama-poster img {
   width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .no-poster {
   width: 100%;
-  height: 450px;
-  background-color: #f0f0f0;
+  height: 500px;
+  background-color: #E5E1D8;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  color: #999;
+  border-radius: 20px;
+  color: #000B1C;
   font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .drama-info {
@@ -37,115 +45,153 @@
 }
 
 .drama-title {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  color: #333;
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+  color: #000B1C;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -1px;
+  line-height: 1.1;
 }
 
 .drama-year {
   display: inline-block;
-  margin-right: 15px;
-  font-size: 1.2rem;
-  color: #666;
+  margin-right: 20px;
+  font-size: 1.3rem;
+  color: #555555;
+  font-weight: 500;
 }
 
 .drama-rating {
   display: inline-block;
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 15px;
+  font-size: 1.3rem;
+  color: #000B1C;
+  margin-bottom: 25px;
+  font-weight: 700;
 }
 
 .rating-star {
-  color: #ffcc00;
+  color: #000B1C;
 }
 
 .drama-genres {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .genre-tag {
   display: inline-block;
-  background-color: #f0f0f0;
-  color: #333;
-  padding: 5px 12px;
-  border-radius: 20px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  background-color: #F2EFE9;
+  color: #000B1C;
+  padding: 8px 20px;
+  border-radius: 30px;
+  margin-right: 12px;
+  margin-bottom: 12px;
   font-size: 0.9rem;
-  transition: all 0.2s;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #E5E1D8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .genre-tag:hover {
-  background-color: #ff5e62;
-  color: white;
+  background-color: #000B1C;
+  color: #F2EFE9;
+  border-color: #000B1C;
+  transform: translateY(-2px);
 }
 
-.drama-network, .drama-status {
-  margin-bottom: 10px;
-  color: #666;
+.drama-network,
+.drama-status {
+  margin-bottom: 12px;
+  color: #555555;
+  font-size: 1.05rem;
 }
 
 .info-label {
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #000B1C;
+  margin-right: 8px;
 }
 
 .drama-summary {
-  margin: 25px 0;
+  margin: 35px 0;
+  padding-top: 25px;
+  border-top: 1px solid #E5E1D8;
 }
 
 .drama-summary h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #000B1C;
+  font-family: 'Playfair Display', serif;
 }
 
 .drama-summary p {
-  line-height: 1.6;
-  color: #555;
+  line-height: 1.8;
+  color: #555555;
+  font-size: 1.1rem;
 }
 
 .drama-links {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .official-site-link {
   display: inline-block;
-  background-color: #ff5e62;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
+  background-color: #000B1C;
+  color: #FFFFFF;
+  padding: 14px 35px;
+  border-radius: 50px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.2s;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
 }
 
 .official-site-link:hover {
-  background-color: #e54b4e;
+  background-color: #001533;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 11, 28, 0.2);
 }
 
 .drama-cast {
-  margin: 40px 0;
+  margin: 60px 0;
+}
+
+.drama-cast .section-title {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #000B1C;
+  font-family: 'Playfair Display', serif;
 }
 
 .cast-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
 }
 
 .cast-item {
-  background-color: white;
-  border-radius: 8px;
+  background-color: #FFFFFF;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E5E1D8;
+  transition: all 0.3s ease;
+}
+
+.cast-item:hover {
+  transform: translateY(-5px);
+  border-color: #000B1C;
 }
 
 .cast-image {
   width: 100%;
-  height: 200px;
+  height: 240px;
   overflow: hidden;
 }
 
@@ -158,90 +204,115 @@
 .no-image {
   width: 100%;
   height: 100%;
-  background-color: #f0f0f0;
+  background-color: #E5E1D8;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #999;
+  color: #000B1C;
+  font-weight: 600;
 }
 
 .cast-info {
-  padding: 10px;
+  padding: 15px;
+  text-align: center;
 }
 
 .cast-name {
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 5px;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  color: #000B1C;
 }
 
 .cast-character {
-  font-size: 0.8rem;
-  color: #666;
+  font-size: 0.85rem;
+  color: #666666;
 }
 
 .back-navigation {
-  margin-top: 30px;
+  margin-top: 50px;
+  text-align: center;
 }
 
 .back-button {
   display: inline-block;
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
+  background-color: transparent;
+  color: #000B1C;
+  padding: 12px 30px;
+  border-radius: 50px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.2s;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border: 2px solid #000B1C;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .back-button:hover {
-  background-color: #444;
+  background-color: #000B1C;
+  color: #FFFFFF;
 }
 
 .error-message {
   text-align: center;
-  padding: 50px 20px;
-  color: #ff5e62;
-  font-size: 1.2rem;
+  padding: 80px 20px;
+  color: #000B1C;
+  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Playfair Display', serif;
 }
 
 .back-link {
-  margin-top: 20px;
-  color: #333;
-  text-decoration: underline;
+  margin-top: 25px;
+  color: #000B1C;
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 2px solid #000B1C;
+}
+
+@media (max-width: 1024px) {
+  .drama-poster {
+    flex: 0 0 300px;
+  }
+
+  .drama-title {
+    font-size: 2.8rem;
+  }
 }
 
 @media (max-width: 768px) {
   .drama-details-header {
     flex-direction: column;
+    padding: 25px;
+    gap: 30px;
   }
-  
+
   .drama-poster {
     flex: 0 0 auto;
-    max-width: 250px;
+    max-width: 280px;
     margin: 0 auto;
   }
-  
+
   .drama-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     text-align: center;
   }
-  
-  .drama-year, .drama-rating {
+
+  .drama-year,
+  .drama-rating {
     display: block;
     text-align: center;
     margin-right: 0;
   }
-  
+
   .drama-genres {
     text-align: center;
   }
-  
+
   .cast-list {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
   }
 }

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { getPopularKdramas, getAllGenres } from '../services/api';
+import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
+import {motion} from 'framer-motion';
+import {getPopularKdramas, getAllGenres} from '../services/api';
 import './HomePage.css';
 import DramaCard from './DramaCard';
 
@@ -18,7 +19,7 @@ const HomePage = () => {
           getPopularKdramas(),
           getAllGenres()
         ]);
-        
+
         setPopularDramas(dramasData);
         setGenres(genresData);
         setLoading(false);
@@ -43,47 +44,108 @@ const HomePage = () => {
     return <div className="error-message">{error}</div>;
   }
 
+  const containerVariants = {
+    hidden: {opacity: 0},
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: {y: 20, opacity: 0},
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+
   return (
     <div className="home-page">
       <div className="container">
-        <section className="hero-section">
+        <motion.section
+          className="hero-section"
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          transition={{duration: 1}}
+        >
           <div className="hero-content">
-            <h1 className="hero-title">Discover Your Next K-Drama Obsession</h1>
-            <p className="hero-description">
+            <motion.h1
+              className="hero-title"
+              initial={{y: 30, opacity: 0}}
+              animate={{y: 0, opacity: 1}}
+              transition={{delay: 0.2, duration: 0.8}}
+            >
+              Discover Your Next K-Drama Obsession
+            </motion.h1>
+            <motion.p
+              className="hero-description"
+              initial={{y: 30, opacity: 0}}
+              animate={{y: 0, opacity: 1}}
+              transition={{delay: 0.4, duration: 0.8}}
+            >
               Explore the best Korean dramas across various genres, from heart-fluttering romances to thrilling mysteries.
-            </p>
+            </motion.p>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="section">
+        <motion.section
+          className="section"
+          initial={{opacity: 0, y: 40}}
+          whileInView={{opacity: 1, y: 0}}
+          viewport={{once: true}}
+          transition={{duration: 0.8}}
+        >
           <h2 className="section-title">Popular K-Dramas</h2>
           {popularDramas.length > 0 ? (
-            <div className="drama-grid">
+            <motion.div
+              className="drama-grid"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{once: true}}
+            >
               {popularDramas.slice(0, 10).map(drama => (
-                <DramaCard key={drama.id} drama={drama} />
+                <motion.div key={drama.id} variants={itemVariants}>
+                  <DramaCard drama={drama} />
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           ) : (
             <p>No dramas found. Please try again later.</p>
           )}
-        </section>
+        </motion.section>
 
-        <section className="section">
+        <motion.section
+          className="section"
+          initial={{opacity: 0, y: 40}}
+          whileInView={{opacity: 1, y: 0}}
+          viewport={{once: true}}
+          transition={{duration: 0.8}}
+        >
           <h2 className="section-title">Browse by Genre</h2>
           <div className="genre-list">
             {genres.map(genre => (
-              <Link 
-                to={`/genre/${genre}`} 
-                key={genre} 
+              <Link
+                to={`/genre/${genre}`}
+                key={genre}
                 className="genre-item"
               >
                 {genre}
               </Link>
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        <section className="section">
+        <motion.section
+          className="section"
+          initial={{opacity: 0, y: 40}}
+          whileInView={{opacity: 1, y: 0}}
+          viewport={{once: true}}
+          transition={{duration: 0.8}}
+        >
           <h2 className="section-title">Why K-Dramas?</h2>
           <div className="features-grid">
             <div className="feature-item">
@@ -103,7 +165,7 @@ const HomePage = () => {
               <p>From romance to thriller, historical to fantasy, there's a K-drama for everyone.</p>
             </div>
           </div>
-        </section>
+        </motion.section>
       </div>
     </div>
   );
