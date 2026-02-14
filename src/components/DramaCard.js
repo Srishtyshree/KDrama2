@@ -52,3 +52,4 @@ const DramaCard = ({drama}) => {
 };
 
 export default DramaCard;
+
